@@ -6,9 +6,13 @@ MyApi (https://www.myapiai.com) is a privacy-first personal API platform: connec
 
 This plugin ships:
 
-- The myapi-asc-mcp MCP server (npx -y myapi-asc-mcp)
+- The myapi-asc-mcp MCP server (`npx -y myapi-asc-mcp`)
 - Skills for enroll/status, myapi_request usage, and connected services
-- Plugin variables for Quick Connect (and an optional token fallback)
+- Plugin variables for Quick Connect, optional token fallback, and auth mode
+
+## Prerequisites
+
+The MCP server starts with `npx`, so **Node.js (18+)** must be installed on the machine that runs the plugin (Cursor desktop, or Grok Bot's computer). If the MyApi MCP fails to start, check `node` and `npx` first.
 
 ## Install
 
@@ -17,7 +21,7 @@ This plugin ships:
 1. Open Customize (or Settings → Plugins).
 2. Install this plugin from the marketplace, or for local testing copy this folder to ~/.cursor/plugins/local/myapi.
 3. Reload the window.
-4. Open Plugins → Configure and set MyApi enroll code.
+4. Open Plugins → Configure and set **MyApi enroll code** (or token + auth mode).
 
 ### Grok Bot
 
@@ -42,7 +46,9 @@ Do not paste master or long-lived tokens in chat.
 4. Paste it into the plugin MyApi enroll code field (Plugins → Configure).
 5. Ask the agent to call myapi_status first. On success the MCP registers a local Ed25519 key; that key is the permanent credential.
 
-Optional fallback: set MyApi token so the MCP can register its keypair. Approve the device at the dashboard devices page. Requires a paid plan (Pro or Heavy). Prefer Quick Connect.
+Optional fallback: set MyApi token. Leave Auth mode at `asc` (default) to register a keypair and approve the device, or set Auth mode to `token` to send the token as Bearer on every request. Requires a paid plan (Pro or Heavy). Prefer Quick Connect.
+
+The MCP package is unpinned (`npx -y myapi-asc-mcp`) on purpose while the server is moving quickly. Pin a version in `mcp.json` once a release is stable.
 
 ## How agents should use it
 
