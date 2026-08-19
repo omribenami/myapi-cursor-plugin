@@ -1,0 +1,29 @@
+{
+  "name": "myapi",
+  "displayName": "MyApi",
+  "description": "Official MyApi plugin for Cursor and Grok Bot. Connect agents to the MyApi AI agents hub (services, memory, AFP machines, automations).",
+  "version": "1.0.0",
+  "author": {
+    "name": "Omri Ben Ami"
+  },
+  "homepage": "https://www.myapiai.com",
+  "repository": "https://github.com/omribenami/myapi-cursor-plugin",
+  "keywords": ["myapi", "mcp", "agents", "grok-bot", "cursor"],
+  "license": "MIT",
+  "logo": "assets/myapi-logo.svg",
+  "variables": {
+    "type": "object",
+    "properties": {
+      "MYAPI_ENROLL_CODE": {
+        "type": "string",
+        "title": "MyApi enroll code",
+        "description": "Single-use dashboard Quick Connect code. Expires in about 15 minutes. Mint one at https://www.myapiai.com, then paste it in Plugins Configure — never in chat."
+      },
+      "MYAPI_TOKEN": {
+        "type": "string",
+        "title": "MyApi token (optional)",
+        "description": "Optional fallback. Used once to register the MCP Ed25519 keypair (or as a Bearer token if MYAPI_AUTH_MODE=token). Prefer Quick Connect. Never paste long-lived tokens in chat."
+      }
+    }
+  }
+}
