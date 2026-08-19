@@ -5,7 +5,7 @@ description: Call MyApi via myapi_request. Paths start with /; do not prepend /a
 
 # myapi_request
 
-All authenticated MyApi API calls go through the **`myapi_request`** MCP tool (server id typically `user-myapi` or `myapi`).
+All authenticated MyApi API calls go through the **`myapi_request`** MCP tool on server id **`myapi`** (the key in `mcp.json`).
 
 ## Rules
 
