@@ -11,6 +11,8 @@ Use this skill whenever the user wants to install, enroll, reconnect, or debug t
 
 Always call **`myapi_status`** first in a new session (and after any enroll change). It runs a signed probe and returns identity, connected services, memory, and the endpoint catalog. Do not guess whether the connection works.
 
+The MCP server id is **`myapi`** (the key in `mcp.json`).
+
 ## Quick Connect (preferred)
 
 1. User mints a one-time **Quick Connect** code in the [MyApi dashboard](https://www.myapiai.com).
@@ -22,7 +24,7 @@ If status still fails, ask the user to mint a **fresh** code (the previous one m
 
 ## Optional token fallback
 
-`MYAPI_TOKEN` is supported by `myapi-asc-mcp` but is second-best:
+`MYAPI_TOKEN` is supported by `myapi-asc-mcp` but is second-best. Set both fields in Plugins → Configure:
 
 - Default (`MYAPI_AUTH_MODE=asc`): token is used **once** to register the keypair; the user approves the device at https://www.myapiai.com/dashboard/devices.
 - `MYAPI_AUTH_MODE=token`: every request uses the token as Bearer.
@@ -39,4 +41,4 @@ Scoped credentials: if `myapi_status` reports **SCOPED** access, 403s outside th
 
 - Never ask the user to paste a **long-lived / master token** in chat.
 - Never print enroll codes, tokens, or raw key material.
-- Do not commit secrets into the repo or into `mcp.json` (placeholders only: `${MYAPI_ENROLL_CODE}`, `${MYAPI_TOKEN}`).
+- Do not commit secrets into the repo or into `mcp.json` (placeholders only: `${MYAPI_ENROLL_CODE}`, `${MYAPI_TOKEN}`, `${MYAPI_AUTH_MODE}`).
