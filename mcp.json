@@ -2,10 +2,14 @@
   "mcpServers": {
     "myapi": {
       "command": "npx",
-      "args": ["-y", "myapi-asc-mcp"],
+      "args": [
+        "-y",
+        "myapi-asc-mcp"
+      ],
       "env": {
         "MYAPI_ENROLL_CODE": "${MYAPI_ENROLL_CODE}",
-        "MYAPI_TOKEN": "${MYAPI_TOKEN}"
+        "MYAPI_TOKEN": "${MYAPI_TOKEN}",
+        "MYAPI_AUTH_MODE": "${MYAPI_AUTH_MODE}"
       }
     }
   }
